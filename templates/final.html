@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>REVIEWS</title>
+	<h1>REVIEW PAGE ->{{b.title}}</h1>
+ <meta charset="UTF-8">
+	<meta name="author" content="Navs">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Akronim' rel='stylesheet'>
+	  
+	   <style type="text/css">
+	   	body
+	   	{
+	   		background: #30E8BF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FF8235, #30E8BF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FF8235, #30E8BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	   	}
+	   	   	.yu
+	   	{
+           	width: 100%;
+
+		padding: 20px 30px 30px 30px;
+
+		box-shadow: 2px 2px 5px #333;
+	position: absolute;
+	top: 10%;
+	left: 0%;
+	 
+background: #30E8BF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FF8235, #30E8BF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FF8235, #30E8BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+	.inp{
+	width: 50%;
+	display: block;
+	
+	margin-bottom: 15px;
+	font-size: 20px;
+	border: 2px solid #888;
+	border-bottom: 5px solid #888;
+	background-color: #fff;
+	
+	box-sizing: border-box;
+	
+	background:#ffffff28;
+	border:1px solid white;
+	padding:10px 20px;
+	color: black;
+	outline: none;
+	margin: 10px 0;
+	border-radius: 6px;
+}
+.inp:focus{
+	outline: none;
+	border: 2px solid #555;
+	border-bottom: 5px solid #555;
+}
+ul
+{
+margin: 50px;
+	padding: 5px;
+	list-style-type: circle;
+	
+}
+ul li
+{  
+	padding: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	
+}
+p
+{
+	font-size: 30px;
+	font-style: bold;
+}
+button,a
+{
+	position: relative;
+	
+	display: inline-block;
+	padding: 25px 30px;
+	margin: 40px 0;
+	background: #30E8BF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FF8235, #30E8BF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FF8235, #30E8BF);
+	font-size: 24px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.5s;
+	letter-spacing: 4px;
+overflow: hidden;
+}
+button:hover,a:hover
+{
+	background: #03e9f4;
+	color: #050801;
+}
+	   </style>
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+<div class="yu">
+
+<form action="{{url_for('oo',isbn=isbn)}}" method="post" autocomplete="off">
+
+	<input type="text" name="revie" placeholder="Your review for this book" class="inp"><br>
+	<label for="books">Rate the book</label>
+	<select name="ratin" size="1" class="inp">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select><br>
+<button>SUBMIT</button>
+
+
+<p>{{ ip }}</p>
+<ul>
+	 
+          <li>
+                ISBN:{{ b.isbn}}<br><br>
+               TITLE:{{ b.title}}<br><br>
+                 AUTHOR:{{ b.author}}<br><br>
+                 YEAR OF PUBLICATION:{{b.year }}<br><br>
+                
+                    NUMBER OF RATINGS:{{rc}}<br><br>
+                       AVERAGE RATING: {{ar}}    
+          </li>
+     
+</ul>
+	
+	
+	<h2>USER REVIEWS</h2>
+	<ul>
+		  {% for b in bh %}
+		<li>
+			USERNAME:{{b.userid}}<br>
+			REVIEW:{{b.review}}<br>
+			RATING:{{b.rating}}
+		</li>
+		{% endfor %}
+	</ul>
+	<a id="tab-btn1" href="{{ url_for('logout')}}" class="login active">LOGOUT
+           
+			</a>
+				</form>
+			</div>
+</body>
+</html>

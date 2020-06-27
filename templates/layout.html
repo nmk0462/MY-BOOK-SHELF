@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PROJECT1</title>
+
+    <h1>WELCOME TO MY BOOK SHELF!!</h1>
+	<meta charset="UTF-8">
+	<meta name="author" content="Navs">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Akronim' rel='stylesheet'>
+	  
+	  
+	  
+      <style type="text/css">
+      *{
+      	margin: 0;
+      	padding: 0;
+      	-webkit-box-sizing:border-box;
+      	-moz-box-sizing:border-box;
+      	font-family: 'Cabin';
+            	background: #c0392b;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #8e44ad, #c0392b);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #8e44ad, #c0392b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      }	
+       #main{
+      	width: 100%;
+      	margin:50px auto;
+
+      }
+
+      #tab-btn{
+   margin=0;
+   padding=0;
+   font-family: consolas;
+   box-sizing: border-box;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   flex-direction: row;
+
+}
+
+
+#tab-btn1{
+	position: absolute;
+	top: 45%;
+	left: 30%;
+	display: inline-block;
+	padding: 25px 30px;
+	margin: 40px 0;
+	color: #03e9f4;
+	font-size: 24px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.5s;
+	letter-spacing: 4px;
+	
+    overflow: hidden;
+	
+}
+#tab-btn1:hover
+{
+	background: #03e9f4;
+	color: #050801;
+	
+}
+#tab-btn2{
+	position: absolute;
+	top: 45%;
+	left: 55%;
+	display: inline-block;
+	padding: 25px 30px;
+	margin: 40px 0;
+	color: #03e9f4;
+	font-size: 24px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.5s;
+	letter-spacing: 4px;
+overflow: hidden;
+
+	
+
+}
+#tab-btn2:hover
+{
+	background: #03e9f4;
+	color: #050801;
+	
+}
+
+#aa
+{   color: white;
+	font-size: 30px;
+	position: absolute;
+	top: 40%;
+	left: 30%;
+}
+#ab
+{    color: white;
+	font-size: 30px;
+	position: absolute;
+	top: 40%;
+	left: 55%;
+}
+.other{
+	width: 30%;
+
+		padding: 20px 30px 30px 30px;
+
+		box-shadow: 2px 2px 5px #333;
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	 
+            	background: #c0392b;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #8e44ad, #c0392b);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #8e44ad, #c0392b); transition: 0.4s;
+}
+#reg-box
+{
+	background-color: #888;
+}
+::placeholder { 
+  color: black;
+  opacity: 0.5; 
+}
+.inp{
+	width: 100%;
+	display: block;
+	
+	margin-bottom: 15px;
+	font-size: 20px;
+	border: 2px solid #888;
+	border-bottom: 5px solid #888;
+	background-color: #fff;
+	
+	box-sizing: border-box;
+	
+	background:#ffffff28;
+	border:1px solid white;
+	padding:10px 20px;
+	color: white;
+	outline: none;
+	margin: 10px 0;
+	border-radius: 6px;
+}
+.inp:focus{
+	outline: none;
+	border: 2px solid #555;
+	border-bottom: 5px solid #555;
+}
+button
+{
+	position: relative;
+	
+	display: inline-block;
+	padding: 25px 30px;
+	margin: 40px 0;
+	color: #03e9f4;
+	font-size: 24px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.5s;
+	letter-spacing: 4px;
+overflow: hidden;
+}
+button:hover
+{
+	background: #03e9f4;
+	color: #050801;
+}
+h1
+{
+	font-style: bold;
+	position: absolute;
+	top: 20%;
+	left: 30%;
+	color: cyan;
+}
+#na
+{
+	position: absolute;
+	top: 75%;
+	left: 10%;
+	font-size: 30px;
+}
+
+
+
+  </style>
+</head>
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript"> 
+  $(document).ready(function(){
+  		$(".content").hide();
+  		$(".other").hide(); 
+  $(".login").click(function(){
+
+  	$(".content").show();
+  		$(".other").hide(); 
+  });
+   $(".register").click(function(){
+
+  	$(".content").hide();
+  		$(".other").show();
+  });
+  });
+</script>
+<body>
+<div id="main">
+		
+		<div id="tab-btn">
+			<p id="aa">OLD USER?</p>
+			<a id="tab-btn1" href="{{ url_for('login')}}" class="login active">LOGIN
+           
+			</a>
+			&nbsp
+			<p id="ab">NEW USER? <br>{{ rr }}</p>
+			<a id="tab-btn2" href="#" class="register">REGISTER</a>
+					
+		</div>
+		
+
+	
+<div class="other">
+
+	<h2>Register With Us!</h2>
+	<form action="{{ url_for('login')}}" method="post" id="reg-box" class="form2" autocomplete="off">
+		<input type="Username" name="uname" placeholder="Username" class="inp" required autofocus><br>
+		<input type="password" name="pass" placeholder="Password" class="inp" id="txtPassword1" required><br>
+        <button id="subBtn1" >SIGN UP</button>
+
+</form>	
+</div>
+<p id="na">Designed by->Naveen</p>
+</div>
+
+</body>
+</html>
